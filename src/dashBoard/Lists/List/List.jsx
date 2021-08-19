@@ -1,4 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
+import { PropTypes } from 'prop-types';
+
 
 export default function List({ list, select }) {
   const handleClick = (e) => {
@@ -14,4 +16,9 @@ export default function List({ list, select }) {
       })}
     </div>
   );
+}
+
+List.propTypes =  {
+  list: PropTypes.array.isRequired,
+  select: PropTypes.func.isRequired,
 }

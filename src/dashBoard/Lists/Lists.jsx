@@ -1,32 +1,33 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { PropTypes } from 'prop-types';
 import List from "./List/List";
-
+import Card from './Card/Card';
 
 export default function Lists({ list }) {
   const [id, setId] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState({})
 
   const handleSelect = (id) => {
-    setId(id);
-    setLoading(true);
     const url = `https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/hooks-context/use-effect/data/${id}.json`
     fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      setData(data)
+      setId(id)
     })
     .catch((err) => {
       throw new Error(err)
     })
-    .finally(
-      setLoading(false)
-    )
   }
 
   return(
     <div className='dashboar-lists'>
       <List list={list} select={handleSelect} />
-      
+      {id && <Card data={data} />}
     </div>
   );
+}
+
+Lists.propTypes =  {
+  list: PropTypes.array.isRequired,
 }
