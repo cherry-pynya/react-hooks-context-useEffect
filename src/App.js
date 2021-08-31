@@ -1,10 +1,10 @@
 import './App.css';
-import DashBoard from './DashBoards/DashBoards';
+import DashBoards from './DashBoards/DashBoards';
 
 function App() {
   return (
     <div className="App">
-      <DashBoard />
+      <DashBoards />
     </div>
   );
 }
