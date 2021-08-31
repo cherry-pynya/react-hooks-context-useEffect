@@ -1,5 +1,5 @@
 import './App.css';
-import DashBoard from './DashBoard/DashBoard';
+import DashBoard from './DashBoards/DashBoards';
 
 function App() {
   return (
