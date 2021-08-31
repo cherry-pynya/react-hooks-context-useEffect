@@ -10,11 +10,13 @@ export default function DashBoard() {
     .then((response) => response.json())
     .then((obj) => {
       setList(obj);
-      setLoading(false)
     })
     .catch((err) => {
       throw new Error(err);
     })
+    .finally(() => {
+      setLoading(false);
+    });
   }, [])
 
   return (
